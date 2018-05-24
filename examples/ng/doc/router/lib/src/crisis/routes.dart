@@ -10,7 +10,7 @@ import 'route_paths.dart' as paths;
 
 class Routes {
   // #enddocregion home
-  static final _crisis = new RouteDefinition(
+  static final _crisis = RouteDefinition(
     routePath: paths.crisis,
     component: cct.CrisisComponentNgFactory,
   );
@@ -19,7 +19,7 @@ class Routes {
   // #enddocregion v1
 
   // #docregion home
-  static final _home = new RouteDefinition(
+  static final _home = RouteDefinition(
     routePath: paths.home,
     component: clhct.CrisisListHomeComponentNgFactory,
     useAsDefault: true,

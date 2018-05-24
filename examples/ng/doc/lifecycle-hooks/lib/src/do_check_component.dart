@@ -61,7 +61,7 @@ class DoCheckComponent implements DoCheck {
       var noChangeMsg =
           'DoCheck called ${count}x when no change to hero or power';
       if (count == 1) {
-        // add new "no change" message
+        // add "no change" message
         changeLog.add(noChangeMsg);
       } else {
         // update last "no change" message
@@ -99,7 +99,7 @@ class DoCheckParentComponent {
   }
 
   void reset() {
-    hero = new Hero('Windstorm');
+    hero = Hero('Windstorm');
     power = 'sing';
     childView?.reset();
   }

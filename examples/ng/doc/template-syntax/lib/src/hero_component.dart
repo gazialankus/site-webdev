@@ -25,7 +25,7 @@ class HeroComponent implements OnInit {
   @Input()
   Hero hero;
   // #docregion deleteRequest
-  final _deleteRequest = new StreamController<Hero>();
+  final _deleteRequest = StreamController<Hero>();
   @Output()
   Stream<Hero> get deleteRequest => _deleteRequest.stream;
   // #enddocregion input-output-1, deleteRequest
@@ -40,7 +40,7 @@ class HeroComponent implements OnInit {
   @override
   void ngOnInit() {
     if (hero == null)
-      hero = new Hero(null, '', 'Zzzzzz'); // default sleeping hero
+      hero = Hero(null, '', 'Zzzzzz'); // default sleeping hero
   }
 
   // #docregion deleteRequest

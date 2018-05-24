@@ -9,13 +9,13 @@ import 'not_found_component.template.dart' as nfct;
 
 @Injectable()
 class Routes {
-  static final _crises = new RouteDefinition(
+  static final _crises = RouteDefinition(
     routePath: paths.crises,
     component: clct.CrisisListComponentNgFactory,
   );
 
   // #docregion useAsDefault
-  static final _heroes = new RouteDefinition(
+  static final _heroes = RouteDefinition(
     routePath: paths.heroes,
     component: hlct.HeroListComponentNgFactory,
     useAsDefault: true,
@@ -30,13 +30,13 @@ class Routes {
     _crises,
     _heroes,
     // #enddocregion wildcard
-    new RouteDefinition.redirect(
+    RouteDefinition.redirect(
       path: '',
       redirectTo: paths.heroes.toUrl(),
     ),
     // #enddocregion redirect
     // #docregion wildcard
-    new RouteDefinition(
+    RouteDefinition(
       path: '.+',
       component: nfct.NotFoundComponentNgFactory,
     ),

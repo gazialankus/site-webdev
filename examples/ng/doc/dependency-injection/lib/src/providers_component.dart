@@ -77,14 +77,14 @@ class NewLogger extends Logger implements OldLogger {
 
 class OldLogger extends Logger {
   OldLogger() {
-    throw new Exception("Don't call the Old Logger!");
+    throw Exception("Don't call the Old Logger!");
   }
   String get id => 'OldLogger';
 }
 
 @Component(
   selector: 'two-new-loggers',
-  template: 'Two new loggers: {{logger}}',
+  template: 'Two loggers: {{logger}}',
   providers: [
     // #docregion two-NewLoggers
     const ClassProvider(NewLogger),
