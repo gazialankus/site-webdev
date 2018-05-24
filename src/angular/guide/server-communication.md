@@ -179,7 +179,7 @@ returning mock heroes in a service:
     Future<List<Hero>> getAll() async => mockHeroes;
     // See the "Take it slow" appendix
     Future<List<Hero>> getAllSlowly() {
-      return new Future.delayed(const Duration(seconds: 2), getAll);
+      return Future.delayed(const Duration(seconds: 2), getAll);
     }
   }
 ```
@@ -209,7 +209,7 @@ the heroes from the server:
       try {
         final response = await _http.get(_heroesUrl);
         final heroes = (_extractData(response) as List)
-            .map((value) => new Hero.fromJson(value))
+            .map((value) => Hero.fromJson(value))
             .toList();
         return heroes;
       } catch (e) {
@@ -221,7 +221,7 @@ the heroes from the server:
       try {
         final response = await _http.post(_heroesUrl,
             headers: _headers, body: json.encode({'name': name}));
-        return new Hero.fromJson(_extractData(response));
+        return Hero.fromJson(_extractData(response));
       } catch (e) {
         throw _handleError(e);
       }
@@ -248,7 +248,7 @@ Here's the code that uses the client's `get()` method to fetch data:
     try {
       final response = await _http.get(_heroesUrl);
       final heroes = (_extractData(response) as List)
-          .map((value) => new Hero.fromJson(value))
+          .map((value) => Hero.fromJson(value))
           .toList();
       return heroes;
     } catch (e) {
@@ -340,7 +340,7 @@ This simple app handles a `getAll()` error as follows:
     try {
       final response = await _http.get(_heroesUrl);
       final heroes = (_extractData(response) as List)
-          .map((value) => new Hero.fromJson(value))
+          .map((value) => Hero.fromJson(value))
           .toList();
       return heroes;
     } catch (e) {
@@ -350,7 +350,7 @@ This simple app handles a `getAll()` error as follows:
 
   Exception _handleError(dynamic e) {
     print(e); // for demo purposes only
-    return new Exception('Server error; cause: $e');
+    return Exception('Server error; cause: $e');
   }
 ```
 {%comment%} block error-handling - TODO: describe `_handleError`?
@@ -428,7 +428,7 @@ Now that you know the server's API, here's the implementation of `create()`:
     try {
       final response = await _http.post(_heroesUrl,
           headers: _headers, body: json.encode({'name': name}));
-      return new Hero.fromJson(_extractData(response));
+      return Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
     }

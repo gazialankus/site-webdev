@@ -210,8 +210,8 @@ objects are shared across tests, they are generally initialized during setup:
   setUp(() async {
     fixture = await testBed.create();
     [!final context =!]
-        [!new HtmlPageLoaderElement.createFromElement(fixture.rootElement);!]
-    [!appPO = new AppPO.create(context);!]
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    [!appPO = AppPO.create(context);!]
   });
 ```
 
@@ -300,7 +300,7 @@ You might render hero data (as a map) from the text of the `<li>` elements like 
 
   // ···
   Map<String, dynamic> _heroDataFromLi(String liText) {
-    final matches = new RegExp((r'^(\d+) (.*)$')).firstMatch(liText);
+    final matches = RegExp((r'^(\d+) (.*)$')).firstMatch(liText);
     return _heroData(matches[1], matches[2]);
   }
 ```
