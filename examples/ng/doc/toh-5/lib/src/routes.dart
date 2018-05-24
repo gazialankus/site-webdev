@@ -19,7 +19,7 @@ import 'hero_list_component.template.dart' as hlct;
 // #docregion hero
 class Routes {
   // #enddocregion hero
-  static final _heroes = new RouteDefinition(
+  static final _heroes = RouteDefinition(
     routePath: paths.heroes,
     component: hlct.HeroListComponentNgFactory,
   );
@@ -28,7 +28,7 @@ class Routes {
   // #enddocregion a-first-route
 
   // #docregion dashboard
-  static final _dashboard = new RouteDefinition(
+  static final _dashboard = RouteDefinition(
     routePath: paths.dashboard,
     component: dct.DashboardComponentNgFactory,
   );
@@ -37,7 +37,7 @@ class Routes {
   // #enddocregion dashboard
 
   // #docregion hero
-  static final _hero = new RouteDefinition(
+  static final _hero = RouteDefinition(
     routePath: paths.hero,
     component: hct.HeroComponentNgFactory,
   );
@@ -48,7 +48,7 @@ class Routes {
   final List<RouteDefinition> all = [
     // #enddocregion a-first-route, dashboard, hero
     // #docregion redirect-route
-    new RouteDefinition.redirect(path: '', redirectTo: paths.dashboard.toUrl()),
+    RouteDefinition.redirect(path: '', redirectTo: paths.dashboard.toUrl()),
     // #enddocregion redirect-route
     // #docregion dashboard
     _dashboard,

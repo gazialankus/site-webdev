@@ -28,8 +28,8 @@ void main() {
     setUp(() async {
       fixture = await testBed.create();
       final context =
-          new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-      po = new HeroDetailPO.create(context);
+          HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+      po = HeroDetailPO.create(context);
     });
     // #enddocregion transition-to-hero
 
@@ -42,7 +42,7 @@ void main() {
 
     test('transition to ${targetHero['name']} hero', () async {
       await fixture.update((comp) {
-        comp.hero = new Hero(targetHero['id'], targetHero['name']);
+        comp.hero = Hero(targetHero['id'], targetHero['name']);
       });
       expect(po.heroFromDetails, targetHero);
     });
@@ -60,10 +60,10 @@ void main() {
     setUp(() async {
       fixture = await testBed.create(
           beforeChangeDetection: (c) =>
-              c.hero = new Hero(targetHero['id'], targetHero['name']));
+              c.hero = Hero(targetHero['id'], targetHero['name']));
       final context =
-          new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-      po = new HeroDetailPO.create(context);
+          HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+      po = HeroDetailPO.create(context);
     });
 
     test('show hero details', () {

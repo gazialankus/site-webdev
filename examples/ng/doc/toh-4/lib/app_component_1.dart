@@ -30,7 +30,7 @@ class AppComponent implements OnInit {
   Hero selected;
 
   // #docregion new-service
-  HeroService heroService = new HeroService(); // DON'T do this
+  HeroService heroService = HeroService(); // DON'T do this
   // #enddocregion new-service
   // #docregion ctor
   final HeroService _heroService;

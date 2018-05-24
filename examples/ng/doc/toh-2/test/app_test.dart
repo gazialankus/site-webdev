@@ -19,8 +19,8 @@ void main() {
   setUp(() async {
     fixture = await testBed.create();
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    appPO = new AppPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    appPO = AppPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -70,7 +70,7 @@ void selectHeroTests() {
 
   group('Update hero:', () {
     const nameSuffix = 'X';
-    final updatedHero = new Map.from(targetHero);
+    final updatedHero = Map.from(targetHero);
     updatedHero['name'] = "${targetHero['name']}$nameSuffix";
 
     setUp(() async {

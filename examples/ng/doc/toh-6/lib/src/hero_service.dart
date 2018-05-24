@@ -25,7 +25,7 @@ class HeroService {
     try {
       final response = await _http.get(_heroesUrl);
       final heroes = (_extractData(response) as List)
-          .map((json) => new Hero.fromJson(json))
+          .map((json) => Hero.fromJson(json))
           .toList();
       return heroes;
       // #docregion catch
@@ -42,7 +42,7 @@ class HeroService {
   // #docregion handleError
   Exception _handleError(dynamic e) {
     print(e); // for demo purposes only
-    return new Exception('Server error; cause: $e');
+    return Exception('Server error; cause: $e');
   }
   // #enddocregion handleError, getAll
 
@@ -50,7 +50,7 @@ class HeroService {
   Future<Hero> get(int id) async {
     try {
       final response = await _http.get('$_heroesUrl/$id');
-      return new Hero.fromJson(_extractData(response));
+      return Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
     }
@@ -62,7 +62,7 @@ class HeroService {
     try {
       final response = await _http.post(_heroesUrl,
           headers: _headers, body: json.encode({'name': name}));
-      return new Hero.fromJson(_extractData(response));
+      return Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
     }
@@ -75,7 +75,7 @@ class HeroService {
       final url = '$_heroesUrl/${hero.id}';
       final response =
           await _http.put(url, headers: _headers, body: json.encode(hero));
-      return new Hero.fromJson(_extractData(response));
+      return Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
     }

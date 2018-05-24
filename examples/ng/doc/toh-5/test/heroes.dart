@@ -32,7 +32,7 @@ HeroesPO po;
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 
 void main() {
-  final injector = new InjectorProbe(rootInjector);
+  final injector = InjectorProbe(rootInjector);
   final testBed = NgTestBed.forComponent<HeroListComponent>(
       ng.HeroListComponentNgFactory,
       rootInjector: injector.factory);
@@ -41,8 +41,8 @@ void main() {
   setUp(() async {
     fixture = await testBed.create();
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    po = new HeroesPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = HeroesPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);

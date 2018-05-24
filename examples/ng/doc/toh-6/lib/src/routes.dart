@@ -8,21 +8,21 @@ import 'hero_list_component.template.dart' as hlct;
 
 @Injectable()
 class Routes {
-  static final _heroes = new RouteDefinition(
+  static final _heroes = RouteDefinition(
     routePath: paths.heroes,
     component: hlct.HeroListComponentNgFactory,
   );
 
   RouteDefinition get heroes => _heroes;
 
-  static final _dashboard = new RouteDefinition(
+  static final _dashboard = RouteDefinition(
     routePath: paths.dashboard,
     component: dct.DashboardComponentNgFactory,
   );
 
   RouteDefinition get dashboard => _dashboard;
 
-  static final _hero = new RouteDefinition(
+  static final _hero = RouteDefinition(
     routePath: paths.hero,
     component: hct.HeroComponentNgFactory,
   );
@@ -30,7 +30,7 @@ class Routes {
   RouteDefinition get hero => _hero;
 
   final List<RouteDefinition> all = [
-    new RouteDefinition.redirect(path: '', redirectTo: paths.dashboard.toUrl()),
+    RouteDefinition.redirect(path: '', redirectTo: paths.dashboard.toUrl()),
     _dashboard,
     _hero,
     _heroes,

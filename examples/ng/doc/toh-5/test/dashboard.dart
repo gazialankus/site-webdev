@@ -32,7 +32,7 @@ DashboardPO po;
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 
 void main() {
-  final injector = new InjectorProbe(rootInjector);
+  final injector = InjectorProbe(rootInjector);
   // #docregion providers
   final testBed = NgTestBed.forComponent<DashboardComponent>(
       ng.DashboardComponentNgFactory,
@@ -42,8 +42,8 @@ void main() {
   setUp(() async {
     fixture = await testBed.create();
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    po = new DashboardPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = DashboardPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);

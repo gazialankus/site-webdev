@@ -50,7 +50,7 @@ abstract class HeroesPO {
   String get myHeroNameInUppercase {
     if (!_miniDetailHeading.exists) return null;
     final text = _miniDetailHeading.visibleText;
-    final matches = new RegExp((r'^\s*(.+) is my hero\s*$')).firstMatch(text);
+    final matches = RegExp((r'^\s*(.+) is my hero\s*$')).firstMatch(text);
     return matches[1];
   }
 
